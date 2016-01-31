@@ -4588,6 +4588,7 @@ p {
 	}
 
 	function build_connect_url( $raw = false, $redirect = false ) {
+
 		if ( ! Jetpack_Options::get_option( 'blog_token' ) || ! Jetpack_Options::get_option( 'id' ) ) {
 			$url = Jetpack::nonce_url_no_esc( Jetpack::admin_url( 'action=register' ), 'jetpack-register' );
 			if( is_network_admin() ) {
@@ -4624,6 +4625,7 @@ p {
 					'user_login'    => $user->user_login,
 					'is_active'     => Jetpack::is_active(),
 					'jp_version'    => JETPACK__VERSION,
+					'remote'		=> 1
 				)
 			);
 
